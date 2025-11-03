@@ -1,1 +1,51 @@
+-- 𝟏. 𝐐𝐮𝐞𝐬𝐭𝐢𝐨𝐧: 𝐋𝐢𝐬𝐭 𝐚𝐥𝐥 𝐮𝐧𝐢𝐪𝐮𝐞 𝐡𝐨𝐬𝐩𝐢𝐭𝐚𝐥 𝐬𝐞𝐫𝐯𝐢𝐜𝐞𝐬 𝐚𝐯𝐚𝐢𝐥𝐚𝐛𝐥𝐞 𝐢𝐧 𝐭𝐡𝐞 𝐡𝐨𝐬𝐩𝐢𝐭𝐚𝐥.
 
+𝐔𝐒𝐄 𝐃𝐀𝐓𝐀𝐁𝐀𝐒𝐄 hospital;
+
+-- 𝐒𝐄𝐑𝐕𝐈𝐂𝐄𝐒 𝐖𝐄𝐄𝐊𝐋𝐘 𝐓𝐚𝐛𝐥𝐞.
+SELECT * FROM Services_Weekly;
+
+-- 𝐒𝐎𝐋𝐔𝐓𝐈𝐎𝐍:
+𝐒𝐄𝐋𝐄𝐂𝐓
+	𝐃𝐈𝐒𝐓𝐈𝐍𝐂𝐓 Service
+𝐅𝐑𝐎𝐌 Services_Weekly;
+
+-- 𝐅𝐥𝐨𝐰 𝐎𝐟 𝐄𝐱𝐞𝐜𝐮𝐭𝐢𝐨𝐧 𝐅𝐨𝐫 𝐓𝐡𝐞 𝐀𝐛𝐨𝐯𝐞 𝐒𝐐𝐋 𝐐𝐮𝐞𝐫𝐲:
+
+𝟏. 𝐅𝐑𝐎𝐌 𝐂𝐥𝐚𝐮𝐬𝐞
+The query starts by reading the data source Services_Weekly. All rows from this table are accessed.
+
+𝟐. 𝐒𝐄𝐋𝐄𝐂𝐓 𝐂𝐥𝐚𝐮𝐬𝐞
+The Service column is extracted from every row in the table.
+
+𝟑. 𝐃𝐈𝐒𝐓𝐈𝐍𝐂𝐓 𝐤𝐞𝐲𝐰𝐨𝐫𝐝
+Duplicate values in the Service column are removed.
+
+𝟒. 𝐑𝐄𝐒𝐔𝐋𝐓:
+The result is a list of unique service names found in the table.
+
+𝟓. 𝐒𝐮𝐦𝐦𝐚𝐫𝐲:
+1. Read all rows from Services_Weekly.
+2. Pick the Service column values.
+3. Deduplicate results so each unique service appears only once in the output.
+
+𝟔. 𝐎𝐫𝐝𝐞𝐫 𝐨𝐟 𝐥𝐨𝐠𝐢𝐜𝐚𝐥 𝐞𝐱𝐞𝐜𝐮𝐭𝐢𝐨𝐧:
+𝑭𝑹𝑶𝑴
+𝑺𝑬𝑳𝑬𝑪𝑻
+𝑫𝑰𝑺𝑻𝑰𝑵𝑪𝑻
+
+
+-- 𝐌𝐘 𝐋𝐄𝐀𝐑𝐍𝐈𝐍𝐆.
+
+𝟏. 𝐇𝐨𝐰 𝐭𝐨 𝐑𝐞𝐭𝐫𝐢𝐞𝐯𝐞 𝐔𝐧𝐢𝐪𝐮𝐞 𝐕𝐚𝐥𝐮𝐞𝐬:
+The DISTINCT keyword ensures you get unique entries from a column, removing duplicates from the results.
+
+𝟐. 𝐂𝐨𝐥𝐮𝐦𝐧 𝐒𝐞𝐥𝐞𝐜𝐭𝐢𝐨𝐧:
+The query demonstrates how to select a specific field (here, Service) from a table.
+
+𝟑. 𝐁𝐚𝐬𝐢𝐜 𝐐𝐮𝐞𝐫𝐲 𝐒𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞:
+You learn the foundational SQL structure: SELECT ... FROM ... for retrieving data.
+
+𝟒. 𝐃𝐚𝐭𝐚 𝐄𝐱𝐩𝐥𝐨𝐫𝐚𝐭𝐢𝐨𝐧:
+This query is commonly used to understand the diversity or types of services available in the Services_Weekly table. 
+It gives you an overview of all unique hospital services recorded in that dataset.
