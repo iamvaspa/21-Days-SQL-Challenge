@@ -1,1 +1,48 @@
+𝐃𝐚𝐲 𝟐 𝐨𝐟 𝐭𝐡𝐞 𝐈𝐃𝐂 𝟐𝟏 𝐃𝐚𝐲𝐬 𝐨𝐟 𝐒𝐐𝐋 𝐂𝐡𝐚𝐥𝐥𝐞𝐧𝐠𝐞 sponsored by DPDzero started with the basics.
 
+-- 𝟐. 𝐐𝐮𝐞𝐬𝐭𝐢𝐨𝐧: 𝐅𝐢𝐧𝐝 𝐚𝐥𝐥 𝐩𝐚𝐭𝐢𝐞𝐧𝐭𝐬 𝐚𝐝𝐦𝐢𝐭𝐭𝐞𝐝 𝐭𝐨 '𝐒𝐮𝐫𝐠𝐞𝐫𝐲' 𝐬𝐞𝐫𝐯𝐢𝐜𝐞 𝐰𝐢𝐭𝐡 𝐚 𝐬𝐚𝐭𝐢𝐬𝐟𝐚𝐜𝐭𝐢𝐨𝐧 𝐬𝐜𝐨𝐫𝐞 𝐛𝐞𝐥𝐨𝐰 𝟕𝟎, 𝐬𝐡𝐨𝐰𝐢𝐧𝐠 𝐭𝐡𝐞𝐢𝐫 𝐩𝐚𝐭𝐢𝐞𝐧𝐭_𝐢𝐝, 𝐧𝐚𝐦𝐞, 𝐚𝐠𝐞, 𝐚𝐧𝐝 𝐬𝐚𝐭𝐢𝐬𝐟𝐚𝐜𝐭𝐢𝐨𝐧 𝐬𝐜𝐨𝐫𝐞.
+
+-- 𝐏𝐀𝐓𝐈𝐄𝐍𝐓𝐒 𝐓𝐚𝐛𝐥𝐞.
+𝐒𝐄𝐋𝐄𝐂𝐓 * 𝐅𝐑𝐎𝐌 Patients;
+
+-- 𝐒𝐎𝐋𝐔𝐓𝐈𝐎𝐍:
+𝐒𝐄𝐋𝐄𝐂𝐓
+	𝐏𝐚𝐭𝐢𝐞𝐧𝐭_𝐈𝐃, 𝐍𝐚𝐦𝐞, 𝐀𝐠𝐞, 𝐒𝐚𝐭𝐢𝐬𝐟𝐚𝐜𝐭𝐢𝐨𝐧
+𝐅𝐑𝐎𝐌 PATIENTS
+𝐖𝐇𝐄𝐑𝐄 𝐒𝐞𝐫𝐯𝐢𝐜𝐞 = '𝐒𝐮𝐫𝐠𝐞𝐫𝐲' 𝐀𝐍𝐃 𝐒𝐚𝐭𝐢𝐬𝐟𝐚𝐜𝐭𝐢𝐨𝐧 < 𝟕𝟎;
+
+-- 𝐅𝐥𝐨𝐰 𝐎𝐟 𝐄𝐱𝐞𝐜𝐮𝐭𝐢𝐨𝐧 𝐅𝐨𝐫 𝐓𝐡𝐞 𝐀𝐛𝐨𝐯𝐞 𝐒𝐐𝐋 𝐐𝐮𝐞𝐫𝐲:
+
+𝟏. 𝐅𝐑𝐎𝐌 𝐜𝐥𝐚𝐮𝐬𝐞
+
+The query begins by accessing the PATIENTS table and reading all its rows.
+
+𝟐. 𝐖𝐇𝐄𝐑𝐄 𝐜𝐥𝐚𝐮𝐬𝐞
+
+It then applies the filter: only those rows where Satisfaction is less than 70 are selected.
+
+All other rows are excluded from further processing.
+
+𝟑. 𝐒𝐄𝐋𝐄𝐂𝐓 𝐜𝐥𝐚𝐮𝐬𝐞
+
+From the filtered results, it selects the columns: Patient_ID, Name, Age, and Satisfaction for each row.
+
+𝟒. 𝐒𝐮𝐦𝐦𝐚𝐫𝐲 𝐨𝐟 𝐋𝐨𝐠𝐢𝐜𝐚𝐥 𝐄𝐱𝐞𝐜𝐮𝐭𝐢𝐨𝐧 𝐎𝐫𝐝𝐞𝐫:
+
+𝑭𝑹𝑶𝑴 (𝒓𝒆𝒂𝒅 𝒕𝒉𝒆 𝒕𝒂𝒃𝒍𝒆)
+
+𝑾𝑯𝑬𝑹𝑬 (𝒂𝒑𝒑𝒍𝒚 𝒕𝒉𝒆 𝒇𝒊𝒍𝒕𝒆𝒓 𝒄𝒓𝒊𝒕𝒆𝒓𝒊𝒐𝒏)
+
+𝑺𝑬𝑳𝑬𝑪𝑻 (𝒄𝒉𝒐𝒐𝒔𝒆 𝒕𝒉𝒆 𝒄𝒐𝒍𝒖𝒎𝒏𝒔 𝒕𝒐 𝒐𝒖𝒕𝒑𝒖𝒕)
+
+𝟓. 𝐑𝐞𝐬𝐮𝐥𝐭:
+You get a list of patient IDs, names, ages, and satisfaction scores for all patients whose satisfaction score is below 70.
+
+
+-- 𝐌𝐘 𝐋𝐄𝐀𝐑𝐍𝐈𝐍𝐆:
+
+𝟏. 𝐅𝐢𝐥𝐭𝐞𝐫𝐢𝐧𝐠 𝐃𝐚𝐭𝐚 𝐰𝐢𝐭𝐡 𝐖𝐇𝐄𝐑𝐄 𝐂𝐥𝐚𝐮𝐬𝐞:
+Learnt how to extract only those records that meet a specific condition—in this case, patients with a satisfaction score below 70.
+
+𝟐. 𝐒𝐞𝐥𝐞𝐜𝐭𝐢𝐧𝐠 𝐌𝐮𝐥𝐭𝐢𝐩𝐥𝐞 𝐂𝐨𝐥𝐮𝐦𝐧𝐬:
+The query shows how to choose and display more than one column from a table.
