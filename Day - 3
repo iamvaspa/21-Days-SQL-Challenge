@@ -1,1 +1,49 @@
+𝐃𝐚𝐲 𝟑 𝐨𝐟 𝐭𝐡𝐞 𝐈𝐃𝐂 𝟐𝟏 𝐃𝐚𝐲𝐬 𝐨𝐟 𝐒𝐐𝐋 𝐂𝐡𝐚𝐥𝐥𝐞𝐧𝐠𝐞 sponsored by DPDzero started with the basics.
+
+-- 𝟑. 𝐐𝐮𝐞𝐬𝐭𝐢𝐨𝐧: 𝐑𝐞𝐭𝐫𝐢𝐞𝐯𝐞 𝐭𝐡𝐞 𝐭𝐨𝐩 𝟓 𝐰𝐞𝐞𝐤𝐬 𝐰𝐢𝐭𝐡 𝐭𝐡𝐞 𝐡𝐢𝐠𝐡𝐞𝐬𝐭 𝐩𝐚𝐭𝐢𝐞𝐧𝐭 𝐫𝐞𝐟𝐮𝐬𝐚𝐥𝐬 𝐚𝐜𝐫𝐨𝐬𝐬 𝐚𝐥𝐥 𝐬𝐞𝐫𝐯𝐢𝐜𝐞𝐬, 𝐬𝐡𝐨𝐰𝐢𝐧𝐠 𝐰𝐞𝐞𝐤, 𝐬𝐞𝐫𝐯𝐢𝐜𝐞, 𝐩𝐚𝐭𝐢𝐞𝐧𝐭𝐬_𝐫𝐞𝐟𝐮𝐬𝐞𝐝, 𝐚𝐧𝐝 𝐩𝐚𝐭𝐢𝐞𝐧𝐭𝐬_𝐫𝐞𝐪𝐮𝐞𝐬𝐭. 𝐒𝐨𝐫𝐭 𝐛𝐲 𝐩𝐚𝐭𝐢𝐞𝐧𝐭𝐬_𝐫𝐞𝐟𝐮𝐬𝐞𝐝 𝐢𝐧 𝐝𝐞𝐬𝐜𝐞𝐧𝐝𝐢𝐧𝐠 𝐨𝐫𝐝𝐞𝐫.
+
+-- 𝐒𝐞𝐫𝐯𝐢𝐜𝐞𝐬_𝐖𝐞𝐞𝐤𝐥𝐲 𝐓𝐚𝐛𝐥𝐞.
+𝐒𝐄𝐋𝐄𝐂𝐓 * 𝐅𝐑𝐎𝐌 Services_Weekly;
+
+-- 𝐒𝐎𝐋𝐔𝐓𝐈𝐎𝐍:
+𝐒𝐄𝐋𝐄𝐂𝐓
+	Week, Service, Patients_Refused, Patients_Request
+𝐅𝐑𝐎𝐌 Services_Weekly
+𝐎𝐑𝐃𝐄𝐑 𝐁𝐘 Patients_Refused 𝐃𝐄𝐒𝐂
+𝐋𝐈𝐌𝐈𝐓 𝟓;
+
+-- 𝐅𝐥𝐨𝐰 𝐎𝐟 𝐄𝐱𝐞𝐜𝐮𝐭𝐢𝐨𝐧 𝐎𝐟 𝐓𝐡𝐞 𝐐𝐮𝐞𝐫𝐲.
+
+𝟏. 𝐅𝐑𝐎𝐌 𝐜𝐥𝐚𝐮𝐬𝐞:
+The query starts by reading all rows from the Services_Weekly table.
+
+𝟐. 𝐒𝐄𝐋𝐄𝐂𝐓 𝐜𝐥𝐚𝐮𝐬𝐞:
+Selects the columns: Week, Service, Patients_Refused, Patients_Request for each row.
+
+𝟑. 𝐎𝐑𝐃𝐄𝐑 𝐁𝐘 𝐜𝐥𝐚𝐮𝐬𝐞:
+Sorts the results by Patients_Refused in descending order (highest values first).
+
+𝟒. 𝐋𝐈𝐌𝐈𝐓 𝐜𝐥𝐚𝐮𝐬𝐞:
+Returns only the first 5 rows from the sorted results.
+
+𝟓. 𝐋𝐨𝐠𝐢𝐜𝐚𝐥 𝐄𝐱𝐞𝐜𝐮𝐭𝐢𝐨𝐧 𝐎𝐫𝐝𝐞𝐫:
+5.1. 𝑭𝑹𝑶𝑴 (𝑺𝒆𝒓𝒗𝒊𝒄𝒆𝒔_𝑾𝒆𝒆𝒌𝒍𝒚)
+5.2. 𝑺𝑬𝑳𝑬𝑪𝑻 (𝒄𝒐𝒍𝒖𝒎𝒏𝒔: 𝑾𝒆𝒆𝒌, 𝑺𝒆𝒓𝒗𝒊𝒄𝒆, 𝑷𝒂𝒕𝒊𝒆𝒏𝒕𝒔_𝑹𝒆𝒇𝒖𝒔𝒆𝒅, 𝑷𝒂𝒕𝒊𝒆𝒏𝒕𝒔_𝑹𝒆𝒒𝒖𝒆𝒔𝒕)
+5.3. 𝑶𝑹𝑫𝑬𝑹 𝑩𝒀 (𝑷𝒂𝒕𝒊𝒆𝒏𝒕𝒔_𝑹𝒆𝒇𝒖𝒔𝒆𝒅 𝑫𝑬𝑺𝑪)
+5.4. 𝑳𝑰𝑴𝑰𝑻 (𝒕𝒐𝒑 5 𝒓𝒐𝒘𝒔)
+
+
+-- 𝐌𝐘 𝐋𝐄𝐀𝐑𝐍𝐈𝐍𝐆:
+
+𝟏. 𝐃𝐚𝐭𝐚 𝐒𝐨𝐫𝐭𝐢𝐧𝐠:
+You learn how to use the ORDER BY clause to sort query results by a specific column (here, highest to lowest values of Patients_Refused).
+
+𝟐. 𝐋𝐢𝐦𝐢𝐭𝐢𝐧𝐠 𝐑𝐞𝐬𝐮𝐥𝐭𝐬:
+The LIMIT clause helps you control the number of rows returned, which is useful for top-K analyses, dashboards, and reports.
+
+𝟑. 𝐂𝐨𝐥𝐮𝐦𝐧 𝐒𝐞𝐥𝐞𝐜𝐭𝐢𝐨𝐧:
+You practice selecting specific columns for focused analysis rather than retrieving all fields.
+
+𝟒. 𝐂𝐨𝐦𝐛𝐢𝐧𝐢𝐧𝐠 𝐌𝐮𝐥𝐭𝐢𝐩𝐥𝐞 𝐒𝐐𝐋 𝐂𝐥𝐚𝐮𝐬𝐞𝐬:
+You reinforce how to chain SELECT, ORDER BY, and LIMIT to perform advanced data analysis.
 
