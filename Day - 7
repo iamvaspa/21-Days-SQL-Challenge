@@ -1,0 +1,40 @@
+𝐃𝐚𝐲 𝟕 𝐨𝐟 𝐭𝐡𝐞 𝐈𝐃𝐂 𝟐𝟏 𝐃𝐚𝐲𝐬 𝐨𝐟 𝐒𝐐𝐋 𝐂𝐡𝐚𝐥𝐥𝐞𝐧𝐠𝐞 sponsored by DPDzero started with the basics.
+
+-- 𝐅𝐄𝐓𝐂𝐇 𝐒𝐞𝐫𝐯𝐢𝐜𝐞𝐬_𝐖𝐞𝐞𝐤𝐥𝐲 𝐓𝐚𝐛𝐥𝐞.
+𝐒𝐄𝐋𝐄𝐂𝐓 * 𝐅𝐑𝐎𝐌 Services_Weekly;
+
+-- 𝐒𝐎𝐋𝐔𝐓𝐈𝐎𝐍:
+𝐒𝐄𝐋𝐄𝐂𝐓
+	𝐒𝐄𝐑𝐕𝐈𝐂𝐄,
+        𝐒𝐔𝐌(𝐏𝐚𝐭𝐢𝐞𝐧𝐭𝐬_𝐑𝐞𝐟𝐮𝐬𝐞𝐝) 𝐀𝐒 Total_Patients_Refused,
+       𝐀𝐕𝐆(𝐏𝐚𝐭𝐢𝐞𝐧𝐭_𝐒𝐚𝐭𝐢𝐬𝐟𝐚𝐜𝐭𝐢𝐨𝐧) 𝐀𝐒 Average_Patient_Satisfaction
+𝐅𝐑𝐎𝐌 Services_Weekly
+𝐆𝐑𝐎𝐔𝐏 𝐁𝐘 SERVICE
+𝐇𝐀𝐕𝐈𝐍𝐆 Total_Patients_Refused > 100 AND Average_Patient_Satisfaction < 80;
+
+𝟏. 𝐅𝐑𝐎𝐌 𝐒𝐞𝐫𝐯𝐢𝐜𝐞𝐬_𝐖𝐞𝐞𝐤𝐥𝐲:
+The query begins by retrieving all rows from the Services_Weekly table.
+
+𝟐. 𝐆𝐑𝐎𝐔𝐏 𝐁𝐘 𝐒𝐄𝐑𝐕𝐈𝐂𝐄:
+Rows are grouped by each unique value in the SERVICE column, with each group representing one service.
+
+𝟑. 𝐒𝐄𝐋𝐄𝐂𝐓 𝐚𝐧𝐝 𝐀𝐠𝐠𝐫𝐞𝐠𝐚𝐭𝐞 𝐅𝐮𝐧𝐜𝐭𝐢𝐨𝐧𝐬
+𝐅𝐨𝐫 𝐞𝐚𝐜𝐡 𝐠𝐫𝐨𝐮𝐩 (𝐢.𝐞., 𝐞𝐚𝐜𝐡 𝐮𝐧𝐢𝐪𝐮𝐞 𝐬𝐞𝐫𝐯𝐢𝐜𝐞):
+
+𝟒. 𝐒𝐔𝐌(𝐏𝐚𝐭𝐢𝐞𝐧𝐭𝐬_𝐑𝐞𝐟𝐮𝐬𝐞𝐝): Calculates the total number of refused patients.
+
+𝟓. 𝐀𝐕𝐆(𝐏𝐚𝐭𝐢𝐞𝐧𝐭_𝐒𝐚𝐭𝐢𝐬𝐟𝐚𝐜𝐭𝐢𝐨𝐧): Computes the average satisfaction score.
+
+6. These results are given the aliases 𝐓𝐨𝐭𝐚𝐥_𝐏𝐚𝐭𝐢𝐞𝐧𝐭𝐬_𝐑𝐞𝐟𝐮𝐬𝐞𝐝 and 𝐀𝐯𝐞𝐫𝐚𝐠𝐞_𝐏𝐚𝐭𝐢𝐞𝐧𝐭_𝐒𝐚𝐭𝐢𝐬𝐟𝐚𝐜𝐭𝐢𝐨𝐧.
+
+𝟕. 𝐇𝐀𝐕𝐈𝐍𝐆 𝐂𝐥𝐚𝐮𝐬𝐞:
+The grouped results are filtered:
+Only include services where the total patients refused is greater than 100 and the average satisfaction is less than 80.
+
+𝟖. 𝐓𝐡𝐢𝐬 𝐬𝐭𝐞𝐩 𝐫𝐞𝐦𝐨𝐯𝐞𝐬 𝐠𝐫𝐨𝐮𝐩𝐬/𝐬𝐞𝐫𝐯𝐢𝐜𝐞𝐬 𝐭𝐡𝐚𝐭 𝐝𝐨 𝐧𝐨𝐭 𝐦𝐞𝐞𝐭 𝐛𝐨𝐭𝐡 𝐜𝐨𝐧𝐝𝐢𝐭𝐢𝐨𝐧𝐬.
+
+𝟗. 𝐑𝐞𝐬𝐮𝐥𝐭 (𝐎𝐮𝐭𝐩𝐮𝐭):
+Displays the SERVICE name, the total number of patients refused, and the average satisfaction for only those services that meet the HAVING filter.
+
+𝟏𝟎. 𝐒𝐮𝐦𝐦𝐚𝐫𝐲:
+The query finds services that have both a high number of patient refusals (over 100) and lower-than-desired satisfaction (below 80), returning these stats just for those service groups.
