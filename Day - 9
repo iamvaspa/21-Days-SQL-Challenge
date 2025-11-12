@@ -1,0 +1,173 @@
+-- DATE Functions.
+
+-- Retrieving Current Date and Time:
+
+-- 1. CURDATE() or CURRENT_DATE():
+SELECT 
+	CURRENT_DATE() AS Current_Dates;
+
+-- 2. CURTIME() or CURRENT_TIME():
+SELECT
+	CURTIME() AS Current_Times;
+
+-- 3. NOW() or CURRENT_TIMESTAMP():
+SELECT
+	NOW() AS Present_Time;
+
+-- 4. SYSDATE():
+SELECT
+	SYSDATE() AS System_Date;
+
+-- Manipulating Dates and Times:
+
+-- 1. ADDDATE(date, INTERVAL value unit) or DATE_ADD(date, INTERVAL value unit):
+SELECT
+	DATE_ADD('2025-11-11', INTERVAL 1 MONTH) AS Added_Date;
+
+-- 2. SUBDATE(date, INTERVAL value unit) or DATE_SUB(date, INTERVAL value unit):
+SELECT
+	SUBDATE('2025-11-11', INTERVAL 1 MONTH) AS Subtracted_Date;
+
+-- 3. DATEDIFF(date1, date2):
+SELECT
+	DATEDIFF('2025-12-10', '2025-11-11') AS No_Of_Days;
+
+-- 4. TIMEDIFF(time1, time2):
+SELECT
+	TIMEDIFF('13:01:30', '11:01:30') AS Time_Difference;
+
+-- 5. LAST_DAY(date):
+SELECT
+	LAST_DAY('2025-11-12') AS Last_Day_Of_Month;
+
+-- Extracting Date and Time Components:
+
+-- YEAR(date):
+SELECT
+	YEAR('2025-11-12') AS Year_Is;
+
+-- MONTH(date):
+SELECT
+	MONTH('2025-11-12') AS Month_Is;
+
+-- MONTHNAME(date):
+SELECT
+	MONTHNAME('2025-11-12') AS Name_Of_Month;
+
+-- DAY(date) or DAYOFMONTH(date):
+SELECT
+	DAY('2025-11-12') AS Day_Of_Month;
+
+-- DAYOFWEEK(date):
+SELECT
+	DAYOFWEEK('2025-11-12') AS Day_Of_Week;
+
+-- DAYNAME(date):
+SELECT
+	DAYNAME('2025-11-12') AS Name_Of_Day;
+    
+-- HOUR(time):
+SELECT
+	HOUR('09:39:00') AS Time_In_Hours;
+    
+-- MINUTE(time):
+SELECT
+	MINUTE('09:39:00') AS Time_In_Minutes;
+    
+-- SECOND(time):
+SELECT
+	SECOND('09:39:59') AS Time_In_Seconds;
+
+-- Formatting and Conversion:
+
+-- 1. DATE_FORMAT(date, format_string):
+SELECT
+	DATE_FORMAT('2025-11-12', '%d-%M-%Y') AS Formatted_Date;
+    
+-- OR
+SELECT 
+	DATE_FORMAT(NOW(), '%d-%M-%Y') AS Formatted_Date;
+
+-- 2. STR_TO_DATE(string, format_string):
+SELECT
+	STR_TO_DATE('12-11-2025', '%d-%m-%Y') AS Parsed_Date;
+    
+-- OR
+SELECT
+	STR_TO_DATE('Wed Nov 12 2025', '%a %b %d %Y') AS Parsed_Date;
+    
+-- 3. FROM_UNIXTIME(unix_timestamp):
+SELECT
+	FROM_UNIXTIME(1762923540) AS Date_Value;
+    
+-- OR
+SELECT
+	FROM_UNIXTIME(UNIX_TIMESTAMP());
+    
+-- 4. UNIX_TIMESTAMP(datetime):
+SELECT
+	UNIX_TIMESTAMP('2025-11-12 10:30:55') AS unix_ts;
+    
+-- OR
+SELECT
+	UNIX_TIMESTAMP(NOW()) AS unix_ts;
+
+-- 9. Question: Calculate The AVERAGE LENGTH of Stay (in days) For Each SERVICE, Showing Only Services Where The AVERAGE STAY is More Than 7 Days. 
+-- Also Show The COUNT of PATIENTS And ORDER BY Average Stay DESCENDING.
+
+-- FETCH PATIENTS Table.
+SELECT * FROM PATIENTS;
+
+-- 1. Get The Number of Days Stayed.
+SELECT
+	DATEDIFF(Departure_Date, Arrival_Date) AS No_Of_Days_Stayed
+FROM PATIENTS;
+
+-- 2. Get The Average Number of Days Stayed.
+SELECT
+	AVG(DATEDIFF(Departure_Date, Arrival_Date)) AS Average_Number_Of_Stays
+FROM PATIENTS;
+
+-- 3. Get The Average Number of Days Stayed For Each Service.
+SELECT
+	SERVICE,
+	AVG(DATEDIFF(Departure_Date, Arrival_Date)) AS Avg_No_Of_Days_For_Service
+FROM PATIENTS
+GROUP BY SERVICE;
+
+-- 4. Show Only Services Where The Average Stay is More Than 7 Days.
+SELECT
+	SERVICE,
+    AVG(DATEDIFF(Departure_Date, Arrival_Date)) AS Avg_No_Of_Days_For_Service
+FROM PATIENTS
+GROUP BY SERVICE
+HAVING Avg_No_Of_Days_For_Service > 7;
+
+-- 5. Show The COUNT of PATIENTS.
+SELECT
+	SERVICE,
+    COUNT(*) AS No_Of_Patients,
+    AVG(DATEDIFF(Departure_Date, Arrival_Date)) AS Avg_No_Of_Days_For_Service
+FROM PATIENTS
+GROUP BY SERVICE
+HAVING Avg_No_Of_Days_For_Service > 7;
+
+-- 6. SORT By Average Stay in Descending Order.
+SELECT
+	SERVICE,
+    COUNT(*) AS No_Of_Patients,
+    AVG(DATEDIFF(Departure_Date, Arrival_Date)) AS Avg_No_Of_Days_For_Service
+FROM PATIENTS
+GROUP BY SERVICE
+HAVING Avg_No_Of_Days_For_Service > 7
+ORDER BY Avg_No_Of_Days_For_Service DESC;
+
+-- FINAL SOLUTION:
+SELECT
+	SERVICE,
+    COUNT(*) AS No_Of_Patients,
+    ROUND(AVG(DATEDIFF(Departure_Date, Arrival_Date)), 2) AS Avg_No_Of_Days_For_Service
+FROM PATIENTS
+GROUP BY SERVICE
+HAVING Avg_No_Of_Days_For_Service > 7
+ORDER BY Avg_No_Of_Days_For_Service DESC;
