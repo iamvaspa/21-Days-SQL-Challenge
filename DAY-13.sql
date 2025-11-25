@@ -1,0 +1,25 @@
+-- Day - 13. Question: Create a Comprehensive Report Showing PATIENT_ID, PATIENT NAME, AGE, SERVICE, and The TOTAL NUMBER OF STAFF Members Available in Their Service. 
+-- Only Include Patients From Services That Have More Than 5 STAFF MEMBERS. ORDER BY Number of Staff DESCENDING, Then By PATIENT NAME.
+
+-- FETCH PATIENTS Table.
+SELECT * FROM PATIENTS;
+
+-- FETCH STAFF Table.
+SELECT * FROM STAFF;
+
+-- SOLUTION:
+SELECT
+	P.PATIENT_ID,
+    P.NAME,
+    P.AGE,
+    P.SERVICE,
+    COUNT(S.STAFF_ID) AS No_Of_Staff
+FROM PATIENTS P JOIN STAFF S
+ON P.SERVICE = S.SERVICE
+GROUP BY
+	P.PATIENT_ID,
+    P.NAME,
+    P.AGE,
+    P.SERVICE
+HAVING COUNT(S.STAFF_ID) > 5
+ORDER BY COUNT(STAFF_ID) DESC, P.NAME;

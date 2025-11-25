@@ -1,0 +1,29 @@
+/* Day - 14. Question: Create a STAFF Utilisation Report Showing All STAFF MEMBERS (STAFF_ID, STAFF_NAME, ROLE, SERVICE) and 
+the COUNT of WEEKS They Were Present (from STAFF_SCHEDULE). Include Staff Members Even If They Have No Schedule Records. 
+ORDER BY WEEKS Present DESCENDING.*/
+
+
+
+-- FETCH STAFF Table.
+SELECT * FROM STAFF;
+
+-- FETCH STAFF_SCHEDULE Table.
+SELECT * FROM STAFF_SCHEDULE;
+
+-- SOLUTION.
+SELECT
+	S.STAFF_ID,
+    S.STAFF_NAME,
+    S.ROLE,
+    S.SERVICE,
+    COUNT(DISTINCT (CASE
+						WHEN SS.PRESENT = 1 THEN SS.WEEK
+					END)) AS Present_In_Weeks
+FROM STAFF S LEFT JOIN STAFF_SCHEDULE SS
+ON S.STAFF_ID = SS.STAFF_ID
+GROUP BY
+	S.STAFF_ID,
+    S.STAFF_NAME,
+    S.ROLE,
+    S.SERVICE
+ORDER BY Present_In_Weeks DESC;
